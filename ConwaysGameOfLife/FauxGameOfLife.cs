@@ -6,6 +6,93 @@ using System.Threading.Tasks;
 
 namespace ConwaysGameOfLife
 {
+    public class GameOfLife
+    {
+        public bool[,] grid;
+
+        public GameOfLife(int row, int col)
+        {
+            grid = new bool[row, col];
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < col; j++)
+                {
+                    grid[i, j] = false;
+                }
+            }
+        }
+
+        public int CountLivingNeighbors(int row, int col)
+        {
+            int neighbors = 0;
+            if (grid[row - 1, col - 1])
+            { neighbors++; }
+            if (grid[row - 1, col])
+            { neighbors++; }
+            if (grid[row - 1, col + 1])
+            { neighbors++; }
+            if (grid[row, col - 1])
+            { neighbors++; }
+            if (grid[row, col + 1])
+            { neighbors++; }
+            if (grid[row + 1, col + 1])
+            { neighbors++; }
+            if (grid[row + 1, col])
+            { neighbors++; }
+            if (grid[row + 1, col - 1])
+            { neighbors++; }
+            return neighbors;
+        }
+
+        public bool UnderPopulation(int row, int col)
+        {
+            int neighbors = 0;
+            neighbors = CountLivingNeighbors(row, col);
+            if (neighbors < 2)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool RemainAlive(int row, int col)
+        {
+            bool tester = grid[row, col];
+            int neighbors = 0;
+            neighbors = CountLivingNeighbors(row, col);
+            if (tester)
+            {
+                if (neighbors == 2 || neighbors == 3)
+                {
+                    tester = true;
+                    return true;
+                }
+            } else
+            {
+                tester = false;
+                return false;
+            }
+            return false;
+        }
+
+        public bool OverPopulation(int row, int col)
+        {
+            bool tester = grid[row, col];
+            int neighbors = 0;
+            neighbors = CountLivingNeighbors(row, col);
+            if (tester)
+            {
+                if (neighbors > 3)
+                {
+                    tester = false;
+                    return false;
+                }
+            }
+            return false;
+        }
+
+    }
+
     public class FauxGameOfLife : Board
     {
         private List<List<bool>> cells = new List<List<bool>>();

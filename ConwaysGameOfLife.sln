@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardViewer", "BoardViewer\
 		{84F60520-70B5-4789-95C0-71C412703E69} = {84F60520-70B5-4789-95C0-71C412703E69}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameTest", "GameTest\GameTest.csproj", "{0EB0F0A4-18F2-447D-922E-9133E683C88D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConwaysGameOfLifeTests", "ConwaysGameOfLifeTests\ConwaysGameOfLifeTests.csproj", "{D76599E4-2DDD-4D31-87DA-EAF128A84683}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,10 +26,10 @@ Global
 		{2EE3DF00-A49D-4B03-9409-0B37814B7B5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EE3DF00-A49D-4B03-9409-0B37814B7B5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EE3DF00-A49D-4B03-9409-0B37814B7B5E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0EB0F0A4-18F2-447D-922E-9133E683C88D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0EB0F0A4-18F2-447D-922E-9133E683C88D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0EB0F0A4-18F2-447D-922E-9133E683C88D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0EB0F0A4-18F2-447D-922E-9133E683C88D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D76599E4-2DDD-4D31-87DA-EAF128A84683}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D76599E4-2DDD-4D31-87DA-EAF128A84683}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D76599E4-2DDD-4D31-87DA-EAF128A84683}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D76599E4-2DDD-4D31-87DA-EAF128A84683}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

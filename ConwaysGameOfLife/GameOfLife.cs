@@ -44,15 +44,50 @@ namespace ConwaysGameOfLife
             return neighbors;
         }
 
-        public bool UnderPopulation(int row, int col)
+        public int CountLivingNeighbors2(int row, int col)
         {
             int neighbors = 0;
+
+            if the neighbors row & col is not grid's row is not +/- 1 and col +/-1
+
+            if (grid[row - 1, col - 1])
+            { neighbors++; }
+            if (grid[row - 1, col])
+            { neighbors++; }
+            if (grid[row - 1, col + 1])
+            { neighbors++; }
+            if (grid[row, col - 1])
+            { neighbors++; }
+            if (grid[row, col + 1])
+            { neighbors++; }
+            if (grid[row + 1, col + 1])
+            { neighbors++; }
+            if (grid[row + 1, col])
+            { neighbors++; }
+            if (grid[row + 1, col - 1])
+            { neighbors++; }
+            return neighbors;
+        }
+
+        public bool UnderPopulation(int row, int col)
+        {
+            bool tester = grid[row, col];
+            int neighbors = 0;
             neighbors = CountLivingNeighbors(row, col);
-            if (neighbors < 2)
+            if(tester)
+            {
+                if(neighbors < 2)
+                {
+                    return false;
+                } else
+                {
+                    return true;
+                }
+            }
+            else
             {
                 return false;
             }
-            return true;
         }
 
         public bool RemainAlive(int row, int col)
@@ -64,15 +99,17 @@ namespace ConwaysGameOfLife
             {
                 if (neighbors == 2 || neighbors == 3)
                 {
-                    tester = true;
                     return true;
                 }
-            } else
+                else
+                {
+                    return false;
+                }
+            }
+            else
             {
-                tester = false;
                 return false;
             }
-            return false;
         }
 
         public bool OverPopulation(int row, int col)
@@ -84,13 +121,91 @@ namespace ConwaysGameOfLife
             {
                 if (neighbors > 3)
                 {
-                    tester = false;
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public bool LivingLivesOrDies(int row, int col)
+        {
+            bool tester = grid[row, col];
+            int neighbors = 0;
+            neighbors = CountLivingNeighbors(row, col);
+            if (tester)
+            {
+                if (neighbors == 2 || neighbors == 3)
+                {
+                    return true;
+                }
+                else
+                {
                     return false;
                 }
             }
-            return false;
+            else
+            {
+                return false;
+            }
         }
 
+        public bool DeadLivesOrDies(int row, int col)
+        {
+            bool tester = grid[row, col];
+            int neighbors = 0;
+            neighbors = CountLivingNeighbors(row, col);
+            if (tester)
+            {
+                return true;
+            }
+            else
+            {
+                if(neighbors == 3)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool TheOneRule(int row, int col)
+        {
+            int neighbors = 0;
+            neighbors = CountLivingNeighbors(row, col);
+            if (grid[row,col])
+            {
+                if (neighbors == 2 || neighbors == 3)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (neighbors == 3)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
     }
 
     public class FauxGameOfLife : Board
